@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Cart – TechFix Pro</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ================= BASE ================= */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(circle at top, #0f172a, #020617);
+  color: #fff;
+}
+
+a { text-decoration: none; color: inherit; }
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+/* ================= HEADER ================= */
+header {
+  background: rgba(2,6,23,0.9);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.logo span { color: #f97316; }
+
+nav {
+  display: flex;
+  gap: 26px;
+}
+
+nav a {
+  color: #94a3b8;
+  font-size: 15px;
+}
+
+nav a:hover { color: #fff; }
+
+/* ================= PAGE TITLE ================= */
+.page-title {
+  padding: 60px 0 30px;
+  text-align: center;
+}
+
+.page-title h1 {
+  font-size: 36px;
+}
+
+/* ================= CART LAYOUT ================= */
+.cart-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 40px;
+  padding-bottom: 80px;
+}
+
+/* ================= CART ITEMS ================= */
+.cart-box {
+  background: #020617;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 28px;
+}
+
+.cart-item {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  gap: 20px;
+  align-items: center;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.cart-item:last-child {
+  border-bottom: none;
+}
+
+.cart-img {
+  width: 80px;
+  height: 80px;
+  background: #0f172a;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+}
+
+.cart-info h3 {
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+.cart-info p {
+  font-size: 14px;
+  color: #94a3b8;
+}
+
+.cart-actions {
+  text-align: right;
+}
+
+.qty {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.qty button {
+  background: #0f172a;
+  border: 1px solid rgba(255,255,255,0.1);
+  color: white;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.remove {
+  font-size: 13px;
+  color: #f87171;
+  cursor: pointer;
+}
+
+/* ================= SUMMARY ================= */
+.summary {
+  background: #020617;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 28px;
+  height: fit-content;
+}
+
+.summary h2 {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  font-size: 14px;
+  color: #94a3b8;
+}
+
+.summary-row.total {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 20px;
+}
+
+.checkout-btn {
+  width: 100%;
+  margin-top: 26px;
+  padding: 14px;
+  border-radius: 999px;
+  border: none;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: white;
+}
+
+.checkout-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(37,99,235,0.4);
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+  .cart-layout {
+    grid-template-columns: 1fr;
+  }
+
+  nav { display: none; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+<header>
+  <div class="container header-inner">
+    <div class="logo">TechFix<span>Pro</span></div>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/shop">Shop</a>
+      <a href="/services">Repair Services</a>
+      <a href="/cart">Cart</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ================= TITLE ================= -->
+<section class="page-title">
+  <div class="container">
+    <h1>Your Shopping Cart</h1>
+  </div>
+</section>
+
+<!-- ================= CART ================= -->
+<section class="container cart-layout">
+
+  <!-- LEFT ITEMS -->
+  <div class="cart-box">
+
+    <div class="cart-item">
+      <div class="cart-img">📱</div>
+      <div class="cart-info">
+        <h3>iPhone Charger 20W</h3>
+        <p>Fast Charging Adapter</p>
+      </div>
+      <div class="cart-actions">
+        <div class="qty">
+          <button>-</button>
+          <span>1</span>
+          <button>+</button>
+        </div>
+        <div class="remove">Remove</div>
+      </div>
+    </div>
+
+    <div class="cart-item">
+      <div class="cart-img">🎧</div>
+      <div class="cart-info">
+        <h3>Wireless Earbuds</h3>
+        <p>Bluetooth 5.3</p>
+      </div>
+      <div class="cart-actions">
+        <div class="qty">
+          <button>-</button>
+          <span>2</span>
+          <button>+</button>
+        </div>
+        <div class="remove">Remove</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- RIGHT SUMMARY -->
+  <div class="summary">
+    <h2>Order Summary</h2>
+
+    <div class="summary-row">
+      <span>Subtotal</span>
+      <span>€58.00</span>
+    </div>
+
+    <div class="summary-row">
+      <span>Shipping</span>
+      <span>€5.00</span>
+    </div>
+
+    <div class="summary-row">
+      <span>Tax</span>
+      <span>€3.20</span>
+    </div>
+
+    <div class="summary-row total">
+      <span>Total</span>
+      <span>€66.20</span>
+    </div>
+
+    <button class="checkout-btn">
+      Proceed to Checkout
+    </button>
+  </div>
+
+</section>
+
+</body>
+</html>

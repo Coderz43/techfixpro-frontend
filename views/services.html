@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Repair Services – TechFix Pro</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body class="dark-theme">
+
+<!-- ================= HEADER ================= -->
+<header class="header">
+  <div class="container header-inner">
+    <div class="logo">TechFix<span>Pro</span></div>
+
+    <nav class="nav">
+      <a href="/" data-i18n="home"></a>
+      <a href="/shop" data-i18n="shop"></a>
+      <a href="/services" data-i18n="services"></a>
+      <a href="/cart" data-i18n="cart"></a>
+    </nav>
+
+    <div class="header-actions">
+      <select id="lang">
+        <option value="en">EN</option>
+        <option value="pt">PT</option>
+      </select>
+      <a href="/cart" class="cart-icon">🛒</a>
+    </div>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero small">
+  <div class="container hero-content">
+    <h1>Repair Services</h1>
+    <p>Fast • Professional • Guaranteed Repairs</p>
+  </div>
+</section>
+
+<!-- ================= SERVICES / CONTACT ================= -->
+<section class="section alt">
+  <div class="container contact-layout">
+
+    <!-- LEFT INFO -->
+    <div class="contact-info">
+      <h2>Contact Us</h2>
+
+      <div class="info-box">
+        <span>📞</span>
+        <div>
+          <strong>Phone</strong>
+          <p>+351 913 709 717</p>
+        </div>
+      </div>
+
+      <div class="info-box">
+        <span>📧</span>
+        <div>
+          <strong>Email</strong>
+          <p>umpulsiva@gmail.com</p>
+        </div>
+      </div>
+
+      <div class="info-box">
+        <span>📍</span>
+        <div>
+          <strong>Address</strong>
+          <p>Avenida Almirante Reis 102</p>
+          <small>1150-022 Lisboa, Portugal</small>
+        </div>
+      </div>
+
+      <div class="trust-list">
+        <p>✔ Certified technicians</p>
+        <p>✔ Same-day repair available</p>
+        <p>✔ Original / premium parts</p>
+        <p>✔ Repair warranty included</p>
+      </div>
+    </div>
+
+    <!-- RIGHT FORM -->
+    <div class="contact-form-card">
+      <h3>Request a Repair</h3>
+
+      <form id="repairForm" class="contact-form">
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Full Name *</label>
+            <input type="text" required placeholder="Your full name">
+          </div>
+
+          <div class="form-group">
+            <label>Email *</label>
+            <input type="email" required placeholder="your@email.com">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Phone *</label>
+            <input type="tel" required placeholder="+351 9xx xxx xxx">
+          </div>
+
+          <div class="form-group">
+            <label>Device *</label>
+            <select required>
+              <option value="">Select device</option>
+              <option>Smartphone</option>
+              <option>Tablet</option>
+              <option>Smartwatch</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Model</label>
+            <input type="text" placeholder="iPhone / Samsung / Xiaomi">
+          </div>
+
+          <div class="form-group">
+            <label>Problem *</label>
+            <select required>
+              <option value="">Select issue</option>
+              <option>Screen Replacement</option>
+              <option>Battery Issue</option>
+              <option>Charging Problem</option>
+              <option>Water Damage</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Message</label>
+          <textarea rows="4" placeholder="Describe the problem"></textarea>
+        </div>
+
+        <div class="upload-box">
+          <p>📎 Upload Images (optional)</p>
+          <small>PNG / JPG – Max 3 files</small>
+          <input type="file" multiple>
+        </div>
+
+        <button type="submit" class="btn primary full">
+          Submit Request
+        </button>
+
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>
+      <h4>TechFix Pro</h4>
+      <p>Professional mobile repair services in Portugal.</p>
+    </div>
+
+    <div>
+      <h4>Services</h4>
+      <a href="/services">Phone Repair</a>
+      <a href="/services">Tablet Repair</a>
+      <a href="/services">Watch Repair</a>
+    </div>
+
+    <div>
+      <h4>Support</h4>
+      <a href="#">Contact</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 TechFix Pro. All rights reserved.
+  </div>
+</footer>
+
+<script>
+document.getElementById("repairForm").addEventListener("submit", e => {
+  e.preventDefault();
+  alert("Your repair request has been submitted successfully!");
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop – TechFix Pro</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:Poppins,sans-serif;
+  background:radial-gradient(circle at top,#0f172a,#020617);
+  color:#fff;
+}
+a{text-decoration:none;color:inherit}
+.container{max-width:1350px;margin:auto;padding:0 20px}
+
+/* HEADER */
+header{
+  position:sticky;top:0;z-index:1000;
+  background:rgba(2,6,23,.9);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(255,255,255,.08)
+}
+.header-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px 0
+}
+.logo{font-size:24px;font-weight:700}
+.logo span{color:#f97316}
+nav{display:flex;gap:32px}
+nav a{color:#94a3b8;font-size:15px}
+nav a:hover{color:#fff}
+.header-actions{display:flex;gap:15px;align-items:center}
+
+/* HERO */
+.hero{
+  padding:100px 0 80px;
+  background:
+  radial-gradient(circle at right,rgba(37,99,235,.25),transparent 40%),
+  radial-gradient(circle at left,rgba(249,115,22,.2),transparent 40%)
+}
+.hero h1{font-size:46px;margin-bottom:12px}
+.hero p{color:#94a3b8;font-size:16px}
+
+/* CATEGORY ROW */
+.category-row{margin:80px 0}
+.row-header{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-bottom:22px
+}
+.row-header h2{font-size:24px}
+.row-header a{color:#f97316;font-size:14px}
+
+/* SLIDER */
+.row-track{
+  overflow:hidden;
+  position:relative
+}
+.row-inner{
+  display:flex;
+  gap:22px;
+  width:max-content;
+  animation:scroll 40s linear infinite
+}
+.row-track:hover .row-inner{
+  animation-play-state:paused
+}
+
+/* CARD */
+.card{
+  min-width:240px;
+  background:linear-gradient(180deg,#020617,#020617);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:18px;
+  padding:24px;
+  transition:.35s;
+  position:relative
+}
+.card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:18px;
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,.08),transparent);
+  opacity:0;
+  transition:.3s
+}
+.card:hover::after{opacity:1}
+.card:hover{
+  transform:translateY(-8px) scale(1.02);
+  box-shadow:0 25px 60px rgba(0,0,0,.6)
+}
+.img{
+  height:130px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:52px;
+  margin-bottom:12px
+}
+.card h3{font-size:15px;margin-bottom:6px}
+.price{
+  color:#f97316;
+  font-weight:600;
+  margin-bottom:12px;
+  font-size:16px
+}
+.btn{
+  width:100%;
+  padding:10px;
+  border-radius:999px;
+  border:none;
+  font-size:13px;
+  background:linear-gradient(135deg,#2563eb,#1d4ed8);
+  color:#fff;
+  cursor:pointer
+}
+.btn:hover{opacity:.9}
+
+/* FOOTER */
+footer{
+  background:#020617;
+  padding:70px 0 25px;
+  border-top:1px solid rgba(255,255,255,.08)
+}
+.footer-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:35px
+}
+footer h4{margin-bottom:10px}
+footer a{display:block;color:#94a3b8;font-size:14px;margin-bottom:6px}
+footer a:hover{color:#fff}
+.footer-bottom{
+  text-align:center;
+  margin-top:35px;
+  font-size:13px;
+  color:#94a3b8
+}
+
+/* ANIMATION */
+@keyframes scroll{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  nav{display:none}
+  .hero h1{font-size:34px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="container header-inner">
+    <div class="logo">TechFix<span>Pro</span></div>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/shop">Shop</a>
+      <a href="/services">Repair Services</a>
+      <a href="/cart">Cart</a>
+    </nav>
+    <div class="header-actions">🛒</div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h1>Accessories Store</h1>
+    <p>High-quality mobile accessories & smart devices</p>
+  </div>
+</section>
+
+<section class="container" id="shop"></section>
+
+<footer>
+  <div class="container footer-grid">
+    <div>
+      <h4>TechFix Pro</h4>
+      <p>Professional telecom & accessories store</p>
+    </div>
+    <div>
+      <h4>Shop</h4>
+      <a href="#">Chargers</a>
+      <a href="#">Earbuds</a>
+      <a href="#">Smart Devices</a>
+    </div>
+    <div>
+      <h4>Support</h4>
+      <a href="#">Contact</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms</a>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 TechFix Pro</div>
+</footer>
+
+<script>
+const categories = {
+  "⚡ Chargers": ["Fast Charger 20W","GaN Charger","Car Charger","Wireless Charger","PD Adapter"],
+  "🔌 Cables": ["USB-C Cable","Lightning Cable","Magnetic Cable","Fast Data Cable","Braided Cable"],
+  "🎧 Earbuds": ["Wireless Earbuds","ANC Earbuds","Gaming Earbuds","Sport Earbuds","Premium Buds"],
+  "⌚ Smartwatches": ["Fitness Watch","Health Tracker","Pro Smartwatch","Kids Watch","Sport Watch"],
+  "📱 Cases": ["Silicone Case","Shockproof Case","Clear Case","Leather Case","Wallet Case"]
+};
+
+const shop = document.getElementById("shop");
+
+for(const cat in categories){
+  shop.innerHTML += `
+  <div class="category-row">
+    <div class="row-header">
+      <h2>${cat}</h2>
+      <a href="#">View all →</a>
+    </div>
+    <div class="row-track">
+      <div class="row-inner">
+        ${categories[cat].map(p=>`
+          <div class="card">
+            <div class="img">${cat.split(" ")[0]}</div>
+            <h3>${p}</h3>
+            <div class="price">€${Math.floor(Math.random()*40)+9}</div>
+            <button class="btn">Add to Cart</button>
+          </div>
+        `).join("")}
+        ${categories[cat].map(p=>`
+          <div class="card">
+            <div class="img">${cat.split(" ")[0]}</div>
+            <h3>${p}</h3>
+            <div class="price">€${Math.floor(Math.random()*40)+9}</div>
+            <button class="btn">Add to Cart</button>
+          </div>
+        `).join("")}
+      </div>
+    </div>
+  </div>`;
+}
+</script>
+
+</body>
+</html>
