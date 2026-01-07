@@ -5,297 +5,397 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Your Cart – TechFix Pro</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-/* ================= BASE ================= */
-body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background: radial-gradient(circle at top, #0f172a, #020617);
-  color: #fff;
+:root{
+  --dark:#020617;
+  --card:#020617;
+  --border:rgba(255,255,255,.08);
+  --muted:#94a3b8;
+  --primary:#2563eb;
+  --danger:#ef4444;
 }
 
-a { text-decoration: none; color: inherit; }
+/* BASE */
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:#ffffff;
+  color:#111;
+}
+a{text-decoration:none;color:inherit;}
+.container{max-width:1200px;margin:auto;padding:0 20px;}
 
-.container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 0 20px;
+/* HEADER */
+header{
+  background:#020617;
+  border-bottom:1px solid var(--border);
+}
+.header-inner{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:50px;
+  padding:18px 0;
+  position:relative;
+}
+.logo{
+  position:absolute;
+  left:20px;
+  font-size:24px;
+  font-weight:700;
+  color:#fff;
+}
+.logo span{color:#f97316;}
+nav{display:flex;gap:34px;}
+nav a{
+  color:var(--muted);
+  font-weight:500;
+  padding-bottom:6px;
+}
+nav a:hover{color:#fff;}
+nav a.active{
+  color:#fff;
+  border-bottom:2px solid var(--primary);
 }
 
-/* ================= HEADER ================= */
-header {
-  background: rgba(2,6,23,0.9);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-  position: sticky;
-  top: 0;
-  z-index: 999;
+/* TITLE */
+.page-title{text-align:center;padding:60px 0 30px;}
+.page-title h1{font-size:36px;font-weight:700;}
+
+/* LAYOUT */
+.cart-layout{
+  display:grid;
+  grid-template-columns:2fr 1fr;
+  gap:40px;
+  padding-bottom:60px;
 }
 
-.header-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px 0;
+/* CART TABLE */
+.cart-box{
+  background:var(--card);
+  border-radius:16px;
+  padding:20px;
+  color:#fff;
+}
+.cart-head,
+.cart-row{
+  display:grid;
+  grid-template-columns:80px 1.6fr 1fr 1fr 1fr 1fr;
+  align-items:center;
+  gap:10px;
+}
+.cart-head{
+  font-size:13px;
+  color:var(--muted);
+  border-bottom:1px solid rgba(255,255,255,.1);
+  padding-bottom:10px;
+}
+.cart-row{
+  padding:16px 0;
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.cart-row:last-child{border-bottom:none;}
+
+.cart-img{
+  width:60px;height:60px;
+  background:#0f172a;
+  border-radius:10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.cart-img img{
+  width:50px;height:50px;
+  object-fit:contain;
 }
 
-.logo {
-  font-size: 24px;
-  font-weight: 700;
+.qty{
+  display:flex;
+  gap:6px;
+  align-items:center;
+}
+.qty button{
+  width:26px;height:26px;
+  background:#0f172a;
+  border:1px solid var(--border);
+  color:#fff;
+  cursor:pointer;
+}
+.remove{
+  color:var(--danger);
+  font-size:13px;
+  cursor:pointer;
 }
 
-.logo span { color: #f97316; }
-
-nav {
-  display: flex;
-  gap: 26px;
+/* SIDEBAR */
+.sidebar{
+  background:#0f172a;
+  border-radius:16px;
+  padding:18px;
+  color:#fff;
+}
+.accordion{
+  background:#1f2937;
+  color:#fff;
+  padding:12px;
+  border-radius:8px;
+  cursor:pointer;
+  margin-bottom:8px;
+  font-size:14px;
+}
+.panel{
+  display:none;
+  background:#020617;
+  padding:14px;
+  border-radius:8px;
+  margin-bottom:12px;
+}
+.panel input,.panel select{
+  width:100%;
+  padding:8px;
+  margin-bottom:8px;
+  background:#020617;
+  border:1px solid var(--border);
+  color:#fff;
+}
+.panel button{
+  width:100%;
+  padding:10px;
+  background:var(--primary);
+  color:#fff;
+  border:none;
+  cursor:pointer;
 }
 
-nav a {
-  color: #94a3b8;
-  font-size: 15px;
+/* TOTAL */
+.total-box{
+  background:#020617;
+  border-radius:10px;
+  padding:16px;
+}
+.total-row{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:8px;
+}
+.total-row.final{
+  font-weight:700;
+  font-size:16px;
+}
+.actions{
+  display:flex;
+  gap:10px;
+  margin-top:12px;
+}
+.actions a{
+  flex:1;
+  text-align:center;
+  padding:10px;
+  background:var(--primary);
+  color:#fff;
+  border-radius:6px;
 }
 
-nav a:hover { color: #fff; }
-
-/* ================= PAGE TITLE ================= */
-.page-title {
-  padding: 60px 0 30px;
-  text-align: center;
+/* ALSO BOUGHT */
+.related{
+  padding:80px 0;
+  background:#f8fafc;
+}
+.related h2{
+  text-align:center;
+  font-size:28px;
+  margin-bottom:40px;
+}
+.related-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:24px;
+}
+.product{
+  background:#020617;
+  border-radius:14px;
+  padding:16px;
+  text-align:center;
+  color:#fff;
+}
+.product img{
+  height:120px;
+  object-fit:contain;
+  margin-bottom:12px;
+}
+.product h4{
+  font-size:14px;
+  margin:8px 0;
+}
+.product span{
+  color:#f97316;
+  font-weight:600;
+}
+.product button{
+  margin-top:10px;
+  width:100%;
+  padding:10px;
+  background:#1f2937;
+  border:none;
+  color:#94a3b8;
+  cursor:not-allowed;
 }
 
-.page-title h1 {
-  font-size: 36px;
+/* FOOTER */
+footer{
+  background:#020617;
+  color:#cbd5f5;
+  padding:60px 0 30px;
+}
+.footer-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:40px;
+}
+footer h4{color:#fff;margin-bottom:14px;}
+footer a{display:block;margin-bottom:8px;color:#94a3b8;}
+footer a:hover{color:#fff;}
+.footer-bottom{
+  text-align:center;
+  margin-top:40px;
+  font-size:14px;
+  color:#64748b;
 }
 
-/* ================= CART LAYOUT ================= */
-.cart-layout {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 40px;
-  padding-bottom: 80px;
-}
-
-/* ================= CART ITEMS ================= */
-.cart-box {
-  background: #020617;
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 16px;
-  padding: 28px;
-}
-
-.cart-item {
-  display: grid;
-  grid-template-columns: 80px 1fr auto;
-  gap: 20px;
-  align-items: center;
-  padding: 18px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-}
-
-.cart-item:last-child {
-  border-bottom: none;
-}
-
-.cart-img {
-  width: 80px;
-  height: 80px;
-  background: #0f172a;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 28px;
-}
-
-.cart-info h3 {
-  font-size: 16px;
-  margin-bottom: 6px;
-}
-
-.cart-info p {
-  font-size: 14px;
-  color: #94a3b8;
-}
-
-.cart-actions {
-  text-align: right;
-}
-
-.qty {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 8px;
-}
-
-.qty button {
-  background: #0f172a;
-  border: 1px solid rgba(255,255,255,0.1);
-  color: white;
-  width: 28px;
-  height: 28px;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.remove {
-  font-size: 13px;
-  color: #f87171;
-  cursor: pointer;
-}
-
-/* ================= SUMMARY ================= */
-.summary {
-  background: #020617;
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 16px;
-  padding: 28px;
-  height: fit-content;
-}
-
-.summary h2 {
-  font-size: 20px;
-  margin-bottom: 20px;
-}
-
-.summary-row {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 12px;
-  font-size: 14px;
-  color: #94a3b8;
-}
-
-.summary-row.total {
-  color: #fff;
-  font-size: 18px;
-  font-weight: 600;
-  margin-top: 20px;
-}
-
-.checkout-btn {
-  width: 100%;
-  margin-top: 26px;
-  padding: 14px;
-  border-radius: 999px;
-  border: none;
-  font-size: 15px;
-  font-weight: 500;
-  cursor: pointer;
-  background: linear-gradient(135deg, #2563eb, #1d4ed8);
-  color: white;
-}
-
-.checkout-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(37,99,235,0.4);
-}
-
-/* ================= RESPONSIVE ================= */
-@media (max-width: 900px) {
-  .cart-layout {
-    grid-template-columns: 1fr;
-  }
-
-  nav { display: none; }
+/* RESPONSIVE */
+@media(max-width:900px){
+  .cart-layout{grid-template-columns:1fr;}
+  .logo{position:static;}
+  .header-inner{flex-direction:column;}
 }
 </style>
 </head>
 
 <body>
 
-<!-- ================= HEADER ================= -->
 <header>
   <div class="container header-inner">
     <div class="logo">TechFix<span>Pro</span></div>
     <nav>
       <a href="/">Home</a>
       <a href="/shop">Shop</a>
-      <a href="/services">Repair Services</a>
-      <a href="/cart">Cart</a>
+      <a href="/services">Repair</a>
+      <a href="/cart" class="active">Cart</a>
     </nav>
   </div>
 </header>
 
-<!-- ================= TITLE ================= -->
 <section class="page-title">
   <div class="container">
     <h1>Your Shopping Cart</h1>
   </div>
 </section>
 
-<!-- ================= CART ================= -->
 <section class="container cart-layout">
 
-  <!-- LEFT ITEMS -->
-  <div class="cart-box">
+<div class="cart-box">
+  <div class="cart-head">
+    <div>Image</div><div>Product</div><div>Model</div>
+    <div>Qty</div><div>Price</div><div>Total</div>
+  </div>
+  <div id="cartItems"></div>
+</div>
 
-    <div class="cart-item">
-      <div class="cart-img">📱</div>
-      <div class="cart-info">
-        <h3>iPhone Charger 20W</h3>
-        <p>Fast Charging Adapter</p>
-      </div>
-      <div class="cart-actions">
-        <div class="qty">
-          <button>-</button>
-          <span>1</span>
-          <button>+</button>
-        </div>
-        <div class="remove">Remove</div>
-      </div>
-    </div>
+<div class="sidebar">
+  <div class="accordion" onclick="toggle(0)">USE COUPON CODE</div>
+  <div class="panel"><input placeholder="Coupon"><button>Apply</button></div>
 
-    <div class="cart-item">
-      <div class="cart-img">🎧</div>
-      <div class="cart-info">
-        <h3>Wireless Earbuds</h3>
-        <p>Bluetooth 5.3</p>
-      </div>
-      <div class="cart-actions">
-        <div class="qty">
-          <button>-</button>
-          <span>2</span>
-          <button>+</button>
-        </div>
-        <div class="remove">Remove</div>
-      </div>
-    </div>
-
+  <div class="accordion" onclick="toggle(1)">ESTIMATE SHIPPING & TAXES</div>
+  <div class="panel">
+    <select><option>Portugal</option></select>
+    <select><option>Region</option></select>
+    <input placeholder="Post Code">
+    <button>Get Quotes</button>
   </div>
 
-  <!-- RIGHT SUMMARY -->
-  <div class="summary">
-    <h2>Order Summary</h2>
-
-    <div class="summary-row">
-      <span>Subtotal</span>
-      <span>€58.00</span>
+  <div class="total-box">
+    <div class="total-row"><span>Sub-Total</span><span id="subtotal">€0.00</span></div>
+    <div class="total-row"><span>VAT (23%)</span><span id="tax">€0.00</span></div>
+    <div class="total-row final"><span>Total</span><span id="total">€0.00</span></div>
+    <div class="actions">
+      <a href="/shop">Continue</a>
+      <a href="/checkout">Checkout</a>
     </div>
-
-    <div class="summary-row">
-      <span>Shipping</span>
-      <span>€5.00</span>
-    </div>
-
-    <div class="summary-row">
-      <span>Tax</span>
-      <span>€3.20</span>
-    </div>
-
-    <div class="summary-row total">
-      <span>Total</span>
-      <span>€66.20</span>
-    </div>
-
-    <button class="checkout-btn">
-      Proceed to Checkout
-    </button>
   </div>
-
+</div>
 </section>
+
+<section class="related">
+  <div class="container">
+    <h2>Also Bought</h2>
+    <div class="related-grid">
+      <div class="product"><img src="https://via.placeholder.com/150"><h4>Samsung Battery</h4><span>14.90€</span><button>Out of Stock</button></div>
+      <div class="product"><img src="https://via.placeholder.com/150"><h4>Speaker Flex</h4><span>2.75€</span><button>Out of Stock</button></div>
+      <div class="product"><img src="https://via.placeholder.com/150"><h4>SIM Tray</h4><span>3.90€</span><button>Out of Stock</button></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-grid">
+    <div>
+      <h4>TechFix Pro</h4>
+      <p>Professional mobile repair & accessories store in Portugal.</p>
+    </div>
+    <div>
+      <h4>Services</h4>
+      <a>Phone Repair</a><a>Tablet Repair</a><a>Watch Repair</a>
+    </div>
+    <div>
+      <h4>Shop</h4>
+      <a>Accessories</a><a>Smartphones</a><a>Offers</a>
+    </div>
+    <div>
+      <h4>Support</h4>
+      <a>Contact</a><a>Privacy Policy</a><a>Terms & Conditions</a>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 TechFix Pro. All rights reserved.</div>
+</footer>
+
+<script>
+let cart=JSON.parse(localStorage.getItem("cart"))||[];
+const items=document.getElementById("cartItems");
+const s=document.getElementById("subtotal");
+const t=document.getElementById("tax");
+const tot=document.getElementById("total");
+
+function render(){
+ items.innerHTML="";let sub=0;
+ if(!cart.length){items.innerHTML="<p style='color:#94a3b8'>Cart is empty</p>";}
+ cart.forEach((p,i)=>{
+  let ttl=p.price*p.qty;sub+=ttl;
+  items.innerHTML+=`
+  <div class="cart-row">
+   <div class="cart-img"><img src="${p.image}"></div>
+   <div>${p.title}</div>
+   <div>${p.model||"-"}</div>
+   <div class="qty"><button onclick="qty(${i},-1)">-</button>${p.qty}<button onclick="qty(${i},1)">+</button></div>
+   <div>€${p.price.toFixed(2)}</div>
+   <div>€${ttl.toFixed(2)}<div class="remove" onclick="del(${i})">Remove</div></div>
+  </div>`;
+ });
+ let vat=sub*0.23;
+ s.textContent="€"+sub.toFixed(2);
+ t.textContent="€"+vat.toFixed(2);
+ tot.textContent="€"+(sub+vat).toFixed(2);
+ localStorage.setItem("cart",JSON.stringify(cart));
+}
+function qty(i,v){cart[i].qty=Math.max(1,cart[i].qty+v);render();}
+function del(i){cart.splice(i,1);render();}
+function toggle(i){
+ let p=document.querySelectorAll(".panel")[i];
+ p.style.display=p.style.display==="block"?"none":"block";
+}
+render();
+</script>
 
 </body>
 </html>

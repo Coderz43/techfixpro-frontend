@@ -163,88 +163,152 @@ select{
   font-size:20px;
 }
 
-/* ================= HERO ================= */
-.hero{
-  padding:120px 0 100px;
-  background:
-    radial-gradient(circle at top right,rgba(37,99,235,0.15),transparent 40%),
-    radial-gradient(circle at bottom left,rgba(249,115,22,0.15),transparent 40%);
+/* ================= HERO SLIDER ================= */
+.hero-slider{
+  position: relative;
+  width: 100%;
+  height: 85vh;
+  overflow: hidden;
+  background:#020617;
 }
 
+/* SLIDE */
+.hero-slide{
+  position:absolute;
+  inset:0;
+  background-size:cover;
+  background-position:center;
+  opacity:0;
+  transition:opacity .9s ease;
+}
+
+.hero-slide.active{
+  opacity:1;
+  z-index:1;
+}
+
+/* DARK OVERLAY */
+.hero-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    to right,
+    rgba(2,6,23,.85),
+    rgba(2,6,23,.55)
+  );
+}
+
+/* CONTENT */
 .hero-content{
+  position:relative;
+  z-index:2;
+  max-width:900px;
+  margin:0 auto;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
   text-align:center;
+  color:#fff;
+  padding:0 20px;
 }
 
-.hero h1{
-  font-size:46px;
-  font-weight:700;
-  margin-bottom:16px;
+.hero-content h1{
+  font-size:48px;
+  font-weight:800;
+  margin-bottom:14px;
 }
 
-.hero p{
-  color:var(--text-muted);
-  margin-bottom:30px;
+.hero-content p{
+  font-size:16px;
+  color:#e5e7eb;
+  margin-bottom:32px;
 }
 
+/* BUTTONS */
 .hero-buttons{
   display:flex;
+  gap:18px;
+  flex-wrap:wrap;
   justify-content:center;
-  gap:16px;
 }
 
-/* ================= BUTTONS ================= */
 .btn{
-  padding:12px 26px;
+  padding:13px 30px;
   border-radius:999px;
   font-size:14px;
-  font-weight:500;
+  font-weight:600;
   cursor:pointer;
-  transition:var(--transition);
+  transition:.3s ease;
   border:none;
+  white-space:nowrap;
 }
 
+/* PRIMARY */
 .btn.primary{
-  background:linear-gradient(135deg,var(--primary),var(--primary-dark));
-  color:white;
+  background:linear-gradient(135deg,#2563eb,#1e40af);
+  color:#fff;
 }
 .btn.primary:hover{
   transform:translateY(-2px);
-  box-shadow:0 10px 30px rgba(37,99,235,0.4);
+  box-shadow:0 12px 30px rgba(37,99,235,.45);
 }
 
+/* OUTLINE */
 .btn.outline{
   background:transparent;
-  border:1px solid var(--border-soft);
-  color:white;
+  border:2px solid rgba(255,255,255,.8);
+  color:#fff;
 }
 .btn.outline:hover{
-  background:rgba(255,255,255,0.05);
+  background:rgba(255,255,255,.12);
 }
 
-.btn.small{
-  padding:10px 20px;
-  font-size:13px;
+/* ARROWS */
+.hero-arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:46px;
+  height:46px;
+  border-radius:50%;
+  border:none;
+  background:rgba(255,255,255,.18);
+  color:#fff;
+  font-size:20px;
+  cursor:pointer;
+  z-index:5;
+  transition:.25s ease;
 }
 
-.btn.disabled{
-  opacity:.5;
-  cursor:not-allowed;
+.hero-arrow:hover{
+  background:#fff;
+  color:#020617;
 }
 
-/* ================= SECTIONS ================= */
-.section{
-  padding:80px 0;
-}
-.section.alt{
-  background:rgba(255,255,255,0.02);
-}
-.section-title{
-  text-align:center;
-  font-size:28px;
-  margin-bottom:50px;
+.hero-arrow.left{ left:30px; }
+.hero-arrow.right{ right:30px; }
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .hero-slider{ height:75vh; }
+
+  .hero-content h1{
+    font-size:32px;
+  }
+
+  .hero-content p{
+    font-size:14px;
+  }
+
+  .hero-arrow{
+    width:40px;
+    height:40px;
+  }
 }
 
-/* ================= SERVICES ================= */
+
 .card-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
@@ -708,4 +772,86 @@ select{
   .hd-arrow{
     display:none;
   }
+}
+
+/* ================= WHITE SECTIONS FIX ================= */
+
+/* Make main content sections white */
+.section,
+.section.alt,
+.high-demand {
+  background: #ffffff !important;
+  color: #111 !important;
+  padding: 90px 0;
+}
+
+/* Keep footer dark */
+.footer {
+  background: #020617 !important;
+  color: #fff;
+}
+
+/* Center section titles */
+.section-title,
+.hd-header,
+.hd-sub {
+  text-align: center;
+}
+
+/* Extra spacing below titles */
+.section-title {
+  margin-bottom: 50px;
+}
+
+/* Customer Favorites header center */
+.high-demand .section-title,
+.high-demand .hd-sub {
+  color: #111 !important;
+}
+
+/* Services section alignment */
+.section .card-grid {
+  margin-top: 30px;
+}
+
+/* Shop by Category center */
+.cat-wrapper {
+  margin-top: 50px;
+}
+
+/* Why Choose section */
+.features-grid {
+  margin-top: 40px;
+}
+
+/* Why Choose title color */
+.features-grid,
+.features-grid .feature {
+  color: #fff;
+}
+
+/* BUT keep cards dark */
+.service-card,
+.product-card,
+.hd-card,
+.feature {
+  background: var(--bg-card);
+  color: #fff;
+}
+
+/* DO NOT TOUCH newsletter */
+.newsletter,
+.newsletter-box {
+  background: linear-gradient(
+    135deg,
+    rgba(37,99,235,0.2),
+    rgba(249,115,22,0.2)
+  );
+  color: #fff;
+}
+/* Add breathing space between white & dark */
+.section + .section,
+.section + .high-demand,
+.high-demand + .section {
+  margin-top: 0;
 }
